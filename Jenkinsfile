@@ -13,11 +13,12 @@ pipeline {
     post {
         always {
             publishHTML([
-                reportDir: '', // Directory containing HTML reports
-                reportFiles: 'index.html',         // The HTML file to publish
-                reportName: 'My HTML Report',      // Name of the HTML report
-                keepAll: true,                     // Whether to keep all previous reports
-                alwaysLinkToLastBuild: true        // Whether to link to the last build report
+                reportDir: '',                 // No subdirectory, index.html is in the root
+                reportFiles: 'index.html',     // The HTML file to publish
+                reportName: 'My HTML Report',  // Name of the HTML report
+                keepAll: true,                 // Keep all previous reports
+                alwaysLinkToLastBuild: true,   // Link to the last build report
+                allowMissing: true              // Allow the build to proceed if the report is missing
             ])
         }
     }
