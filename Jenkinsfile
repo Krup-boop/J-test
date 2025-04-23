@@ -10,4 +10,15 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            publishHTML([
+                reportDir: '', // Directory containing HTML reports
+                reportFiles: 'index.html',         // The HTML file to publish
+                reportName: 'My HTML Report',      // Name of the HTML report
+                keepAll: true,                     // Whether to keep all previous reports
+                alwaysLinkToLastBuild: true        // Whether to link to the last build report
+            ])
+        }
+    }
 }
